@@ -37,6 +37,7 @@ class SubmitForm extends StatelessWidget {
           invert: false,
           func: submitFunc,
           text: "CALCULATE",
+          blackButton: true,
         ),
       ],
     );

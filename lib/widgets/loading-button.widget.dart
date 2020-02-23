@@ -5,12 +5,14 @@ class LoadingButton extends StatelessWidget {
   var invert = false;
   Function func;
   var text = "";
+  var blackButton = false;
 
   LoadingButton(
       {@required this.busy,
       @required this.invert,
       @required this.func,
-      @required this.text});
+      @required this.text,
+      this.blackButton = false});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,9 @@ class LoadingButton extends StatelessWidget {
             margin: EdgeInsets.all(30),
             width: double.infinity,
             decoration: BoxDecoration(
-                color: invert ? Theme.of(context).primaryColor : Colors.white,
+                color: blackButton
+                    ? Colors.black
+                    : invert ? Theme.of(context).primaryColor : Colors.white,
                 borderRadius: BorderRadius.circular(60)),
             child: FlatButton(
                 onPressed: func,
