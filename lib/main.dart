@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:fuel_helper_flutter_app/widgets/input.widget.dart';
 
 import 'widgets/logo.widget.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   var _gasCtrl = new MoneyMaskedTextController();
+  var _ethCtrl = new MoneyMaskedTextController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,35 +31,8 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Logo(),
-          Row(
-            children: <Widget>[
-              Container(
-                width: 100,
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "Gasoline",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35,
-                    fontFamily: "Big Shoulders Display",
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Expanded(
-                  child: TextFormField(
-                controller: _gasCtrl,
-                keyboardType: TextInputType.number,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontFamily: "Big Shoulders Display"),
-                decoration: InputDecoration(border: InputBorder.none),
-              ))
-            ],
-          )
+          Input(label: "Gasoline", ctrl: _gasCtrl),
+          Input(label: "Ethanol", ctrl: _ethCtrl)
         ],
       ),
     );
